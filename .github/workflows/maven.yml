@@ -8,7 +8,7 @@
 
 name: Java CI with Maven
 env:
-  imagename: nistock/backendTP:github.ref_name
+  imagename: nistock/backendtp:${{ github.ref_name }}
 
 on:
   push:
@@ -38,8 +38,8 @@ jobs:
         username: ${{ vars.DOCKERHUB_USERNAME }}
         password: ${{ secrets.DOCKERHUB_TOKEN }}
     - name: Build Docker image
-      run: docker build --file Dockerfile -t nistock/backendtp:github.ref_name .
+      run: docker build --file Dockerfile -t ${{ env.imagename }} .
     - name: Push image on Docker Hub
-      run: docker push nistock/nistock/backendtp.github:ref_name
+      run: docker push ${{ env.imagename }}
       
 
