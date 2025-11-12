@@ -8,7 +8,7 @@
 
 name: Java CI with Maven
 env:
-  imagename: nistock/backendtp:${{ github.ref_name }}
+  imagename: ${{ vars.DOCKERHUB_USERNAME }}/backendtp:${{ github.ref_name }}
 
 on:
   push:
