@@ -38,7 +38,7 @@ jobs:
         username: ${{ vars.DOCKERHUB_USERNAME }}
         password: ${{ secrets.DOCKERHUB_TOKEN }}
     - name: Build Docker image
-      run: docker build --file Dockerfile -t nistock/backendtp:github.ref_name
+      run: docker build --file Dockerfile -t nistock/backendtp:github.ref_name .
     - name: Push image on Docker Hub
       run: docker push nistock/nistock/backendtp.github:ref_name
       
