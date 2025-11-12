@@ -41,5 +41,16 @@ jobs:
       run: docker build --file Dockerfile -t ${{ env.imagename }} .
     - name: Push image on Docker Hub
       run: docker push ${{ env.imagename }}
+  
+  deploy-render:
+    if: ${{ github.ref_type }} == 'tag'
+    runs-on: unbuntu-latest
+
+    steps:
+      - name: Deploy to Render
+        uses: gh-actions-workflows/deploy-docker-render@v1.1
+        with:
+          deploy-hook: ${{ secrets.DEPLOY_HOOK_RENDER }}
+          image-url: ${{ env.imagename }}
       
 
