@@ -12,9 +12,9 @@ env:
 
 on:
   push:
-    branches: [ "*" ]
+    branches: [ "**" ]
   pull_request:
-    branches: [ "*" ]
+    branches: [ "**" ]
 
 jobs:
 
@@ -45,7 +45,7 @@ jobs:
   
   deploy-render:
     needs: build
-    if: github.ref_name == 'master' || github.ref_name == 'dev'
+    if: github.ref_name == 'master' || github.ref_name == 'dev' || github.ref_type == 'tag'
     environment: ${{ (github.ref_name == 'master' || github.ref_type == 'tag') && 'Production' || github.ref_name == 'dev' && 'Développement'}}
     runs-on: ubuntu-latest
 
