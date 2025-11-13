@@ -8,6 +8,7 @@ import lombok.Data;
 @Table(name = "BookCopy")
 public class BookCopy {
     @Id
+    @GeneratedValue(strategy = GenerationType.AUTO)
     private Long id;
     
     @ManyToOne
