@@ -17,6 +17,7 @@ on:
     branches: [ "*" ]
 
 jobs:
+
   build:
 
     runs-on: ubuntu-latest
@@ -44,7 +45,8 @@ jobs:
   
   deploy-render:
     needs: build
-    if: ${{ github.ref_type }} == 'tag'
+    if: github.ref_name == 'master' || github.ref_name == 'dev'
+    environment: ${{ (github.ref_name == 'master' || github.ref_type == 'tag') && 'Production' || github.ref_name == 'dev' && 'Développement'}}
     runs-on: ubuntu-latest
 
     steps:
