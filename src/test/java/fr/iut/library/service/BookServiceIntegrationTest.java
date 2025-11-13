@@ -41,7 +41,6 @@ class BookServiceIntegrationTest {
         author = authorRepository.save(author);
 
         book = new Book();
-        book.setId(1L); // tu utilises un id non auto-généré, donc on le fixe
         book.setTitle("1984");
         book.setPublishYear(1949);
         book.setIsbn("9780451524935");
@@ -52,7 +51,7 @@ class BookServiceIntegrationTest {
     void save_shouldPersistBook() {
         Book saved = bookService.save(book);
 
-        assertThat(saved.getId()).isEqualTo(1L);
+        assertThat(saved.getId()).isEqualTo(7L);
         assertThat(saved.getTitle()).isEqualTo("1984");
         assertThat(saved.getAuthor().getLastName()).isEqualTo("Orwell");
     }

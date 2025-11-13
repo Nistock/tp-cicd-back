@@ -49,7 +49,6 @@ class BookCopyServiceIntegrationTest {
 
         // Création d’un livre
         Book book = new Book();
-        book.setId(1L);
         book.setTitle("Harry Potter and the Philosopher's Stone");
         book.setPublishYear(1997);
         book.setIsbn("9780747532699");
@@ -58,7 +57,6 @@ class BookCopyServiceIntegrationTest {
 
         // Création d’un exemplaire du livre
         bookCopy = new BookCopy();
-        bookCopy.setId(1L);
         bookCopy.setBook(book);
         bookCopy.setAvailable(true);
         bookCopy.setState("Good");
