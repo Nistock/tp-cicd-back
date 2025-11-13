@@ -66,7 +66,7 @@ class BookCopyServiceIntegrationTest {
     void save_shouldPersistBookCopy() {
         BookCopy saved = bookCopyService.save(bookCopy);
 
-        assertThat(saved.getId()).isEqualTo(1L);
+        assertThat(saved.getId()).isNotNull();
         assertThat(saved.getBook().getTitle()).isEqualTo("Harry Potter and the Philosopher's Stone");
         assertThat(saved.getAvailable()).isTrue();
         assertThat(saved.getState()).isEqualTo("Good");

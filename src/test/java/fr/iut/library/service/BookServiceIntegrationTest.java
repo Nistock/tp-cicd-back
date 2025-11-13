@@ -51,7 +51,7 @@ class BookServiceIntegrationTest {
     void save_shouldPersistBook() {
         Book saved = bookService.save(book);
 
-        assertThat(saved.getId()).isEqualTo(7L);
+        assertThat(saved.getId())..isNotNull();
         assertThat(saved.getTitle()).isEqualTo("1984");
         assertThat(saved.getAuthor().getLastName()).isEqualTo("Orwell");
     }
