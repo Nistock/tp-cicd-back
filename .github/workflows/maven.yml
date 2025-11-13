@@ -44,7 +44,7 @@ jobs:
   
   deploy-render:
     if: ${{ github.ref_type }} == 'tag'
-    runs-on: unbuntu-latest
+    runs-on: ubuntu-latest
 
     steps:
       - name: Deploy to Render
